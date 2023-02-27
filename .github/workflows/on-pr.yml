@@ -1,0 +1,10 @@
+name: GitHub Action On PR
+run-name: ${{ github.actor }} PR
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.actor }} requested a pull ${{ github.event.pull_request.title }}"
