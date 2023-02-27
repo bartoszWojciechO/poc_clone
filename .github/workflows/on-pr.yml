@@ -4,7 +4,12 @@ on:
   pull_request:
     types: [opened]
 jobs:
-  Explore-GitHub-Actions:
+  Push-To-Main:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.actor }} requested a pull ${{ github.event.pull_request.title }}"
+      - run: echo "${{ github.actor }} requested a pull ${{ github.ref_name }}"
+      - run: ${{ github.action_path }}/push_to_main.sh
+        shell: bash
+        env:
+          TOKEN: ${{secrets.ACCESS_TOKEN}}
+          BRANCH: ${{ github.ref_name }}
