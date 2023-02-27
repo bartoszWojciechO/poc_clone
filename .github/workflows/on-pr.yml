@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.actor }} requested a pull ${{ github.ref_name }}"
-      - run: ${{ github.action_path }}/push_to_main.sh
+      - run: push_to_main.sh
         shell: bash
         env:
           TOKEN: ${{secrets.ACCESS_TOKEN}}
